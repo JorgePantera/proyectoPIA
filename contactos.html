@@ -1,0 +1,62 @@
+<html>
+<head>
+    <!-- Define la codificación de caracteres del documento como UTF-8 -->
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Inserta a Base Mysql</title> <!-- Título de la página que se muestra en la pestaña del navegador -->
+</head>
+
+<style>
+    /* Estilos para el encabezado h1 */
+    body h1 {
+        text-align: center; /* Centra el texto del encabezado h1 */
+    }
+    
+    /* Estilos para el encabezado */
+    header {
+        background-color: #030303; /* Color de fondo del encabezado */
+        color: #FCF8FC; /* Color del texto en el encabezado */
+        padding: 10px 20px; /* Espaciado interno del encabezado */
+        text-align: center; /* Centra el texto en el encabezado */
+    }
+
+    /* Estilos para el cuerpo de la página */
+    body {
+        text-align: center; /* Centra el texto en el cuerpo de la página */
+    }
+
+    /* Estilos para el botón de envío */
+    input[type="submit"] {
+        background-color: #4CAF50; /* Color de fondo del botón */
+        color: white; /* Color del texto en el botón */
+        cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    }
+</style>
+
+<!-- Encabezado de la página -->
+<header>
+    <h1>Search And Destroy</h1> <!-- Título principal de la página -->
+</header>
+
+<body>
+<?php
+// Conexión a la base de datos MySQL
+$conexion = mysqli_connect("localhost", "root", "usbw", "usuariospia", "3307") or
+die("Problemas con la conexión"); // Mensaje de error si no se puede conectar
+
+// Realiza una consulta para insertar un nuevo contacto en la base de datos
+mysqli_query($conexion, "insert into contactos (nombres, apellidos, email, dudas) values('$_REQUEST[nombres]', '$_REQUEST[apellidos]', '$_REQUEST[email]', '$_REQUEST[dudas]')")
+or die("Problemas en el select".mysqli_error($conexion)); // Maneja errores en la consulta
+
+// Cierra la conexión a la base de datos
+mysqli_close($conexion);
+
+// Mensaje de confirmación después de registrar el contacto
+echo "Gracias por contactar con Search And Destroy, nuestro equipo de trabajo estará contactacto con usted en el menor tiempo posible.";
+?>
+
+<!-- Formulario para regresar a la página principal -->
+<form action="index.php" method="post">
+    <input type="submit" value="Volver al inicio"> <!-- Botón para regresar al inicio -->
+</form>
+</body>
+</html>

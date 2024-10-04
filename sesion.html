@@ -1,0 +1,172 @@
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<head>
+    <meta charset="UTF-8"> <!-- Establece la codificación de caracteres a UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Para diseño responsivo -->
+    <title>Search And Destroy</title> <!-- Título de la página -->
+    <!-- Incluir archivos de Bootstrap desde un CDN -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<style>
+    /* Estilos para centrar el texto del encabezado h1 */
+    body h1 {
+        text-align: center;
+    }
+    
+    /* Estilos para el fondo del cuerpo de la página */
+    body {
+        background-repeat: no-repeat; /* Evita que el fondo se repita */
+        background-attachment: fixed; /* Fija el fondo durante el desplazamiento */
+        background-size: cover; /* Cubre toda el área de la pantalla */
+        background-image: linear-gradient(rgba(180, 180, 180, 0.6), rgba(180, 180, 180, 0.6)),
+        url(https://static.vecteezy.com/system/resources/previews/004/210/329/original/cellphone-with-electronic-circuit-free-vector.jpg); /* Imagen de fondo */
+    }
+    
+    /* Estilos para el encabezado */
+    header {
+        background-color: #99F6EB; /* Color de fondo del encabezado */
+        color: #F3F7F6; /* Color del texto en el encabezado */
+        padding: 10px 20px; /* Espaciado interno del encabezado */
+        text-align: center; /* Centra el texto en el encabezado */
+        background-image: url(https://img.freepik.com/fotos-premium/primer-plano-telefono-celular-placa-circuito-medio_245570-167.jpg?w=740); /* Imagen de fondo del encabezado */
+    }
+
+    /* Estilos para la barra de navegación */
+    nav {
+        background-color: #F05DE9; /* Color de fondo de la navegación */
+        padding: 10px 0; /* Espaciado vertical de la navegación */
+        text-align: center; /* Centra los enlaces en la navegación */
+    }
+
+    /* Estilos para los enlaces de navegación */
+    nav a {
+        color: #080808; /* Color de los enlaces */
+        text-decoration: none; /* Sin subrayado en los enlaces */
+        margin: 0 10px; /* Espaciado horizontal entre enlaces */
+    }
+
+    /* Estilos para el efecto al pasar el ratón sobre los enlaces */
+    nav a:hover {
+        text-decoration: underline; /* Subrayado en los enlaces al pasar el ratón */
+    }
+
+    /* Estilos para el contenedor principal */
+    .container {
+        width: 80%; /* Ancho del contenedor */
+        margin: 20px auto; /* Margen automático para centrar el contenedor */
+    }
+
+    /* Estilos para el pie de página */
+    footer {
+        background-color: #030303; /* Color de fondo del pie de página */
+        color: #fff; /* Color del texto en el pie de página */
+        text-align: center; /* Centra el texto en el pie de página */
+        padding: 2px 0; /* Espaciado vertical del pie de página */
+        position: fixed; /* Fija el pie de página en la parte inferior */
+        bottom: 0; /* Posición en la parte inferior de la ventana */
+        width: 100%; /* Ancho completo del pie de página */
+    }
+
+    /* Estilos para el botón de envío */
+    input[type="submit"] {
+        background-color: #4CAF50; /* Color de fondo del botón */
+        color: black; /* Color del texto en el botón */
+        cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    }
+
+    /* Estilos para formularios */
+    form {
+        text-align: center; /* Centra el contenido dentro del formulario */
+    }
+
+    /* Estilos para los botones (si se usa) */
+    button {
+        /* El siguiente código parece ser incorrecto y debería ser ajustado para funcionar */
+        .btn-circle.btn-xl;
+        width: 100px; /* Ancho del botón */
+        height: 20px; /* Alto del botón */
+        padding: 20px 30px; /* Espaciado interno del botón */
+        border-radius: 20px; /* Bordes redondeados */
+        font-size: 12px; /* Tamaño de la fuente */
+        line-height: 0.75; /* Altura de línea */
+        background-color: #D3A8E8; /* Color de fondo del botón */
+    }
+</style>
+
+<header>
+    <h1>Search AND Destroy</h1> <!-- Título principal de la página -->
+</header>
+
+<body bgcolor="#3FF0E0"> <!-- Color de fondo (debería ser manejado por CSS) -->
+    <h1>Bienvenido a Search And Destroy</h1> <!-- Mensaje de bienvenida -->
+    
+    <!-- Botón para registrar un dispositivo -->
+    <form action="registrar.php" method="post">
+        <input type="submit" value="Registrar dispositivo"> <!-- Botón de envío -->
+    </form>
+
+    <br><br>
+
+    <?php
+    // Conectar a la base de datos
+    $conexion = mysqli_connect("localhost", "root", "usbw", "usuariospia", "3307") or die("Problemas con la conexión");
+
+    // Consultar los registros de la tabla equipos
+    $registros = mysqli_query($conexion, "SELECT Marca, Modelo, IMEI, Descripcion FROM equipos") or die("Problemas en el select:" . mysqli_error($conexion));
+
+    // Estilos para la tabla
+    echo "<style>
+        table {
+            border-collapse: collapse; /* Colapsa bordes de la tabla */
+            width: 100%; /* Ancho completo de la tabla */
+        }
+        th, td {
+            border: 1px solid #030303; /* Borde de las celdas */
+            text-align: left; /* Alineación del texto en las celdas */
+            padding: 8px; /* Espaciado interno de las celdas */
+        }
+        th {
+            background-color: #FAF9F9; /* Color de fondo de los encabezados */
+        }
+        tr {
+            background-color: #FAF9F9; /* Color de fondo de las filas */
+        }
+      </style>";
+
+    // Generar la tabla para mostrar los registros
+    echo "<table>";
+    echo "<tr><th>Marca</th><th>Modelo</th><th>IMEI</th><th>Descripción</th><th>Acción</th></tr>";
+
+    // Iterar sobre los registros y crear filas de la tabla
+    while ($reg = mysqli_fetch_array($registros)) {
+        echo "<tr>";
+        echo "<td>" . $reg['Marca'] . "</td>";
+        echo "<td>" . $reg['Modelo'] . "</td>";
+        echo "<td>" . $reg['IMEI'] . "</td>";
+        echo "<td>" . $reg['Descripcion'] . "</td>";
+        echo "<td><button><center>Enviar Descarga</center></button></td>"; // Botón para enviar descarga
+        echo "</tr>";
+    }
+
+    echo "</table>"; // Cierra la tabla
+
+    // Cerrar la conexión a la base de datos
+    mysqli_close($conexion);
+    ?>
+
+    <br><br>
+
+    <!-- Botón para cerrar sesión -->
+    <form action="pege.php" method="post">
+        <input type="submit" value="Cerrar Sesión"> <!-- Botón de envío para cerrar sesión -->
+    </form>
+
+    <!-- Pie de página con derechos de autor -->
+    <footer>
+        <p>Derechos de autor © 2024 - SearchAndDestroy</p>
+    </footer>
+    
+    <!-- Incluir archivos de Bootstrap -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

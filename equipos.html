@@ -1,0 +1,65 @@
+<html>
+<head>
+    <title>Inserta a Base Mysql</title> <!-- Título de la página que se muestra en la pestaña del navegador -->
+</head>
+
+<style>
+    /* Estilos para el encabezado h1 */
+    body h1 {
+        text-align: center; /* Centra el texto del encabezado h1 */
+    }
+    
+    /* Estilos para el encabezado */
+    header {
+        background-color: #030303; /* Color de fondo del encabezado */
+        color: #FCF8FC; /* Color del texto en el encabezado */
+        padding: 10px 20px; /* Espaciado interno del encabezado */
+        text-align: center; /* Centra el texto en el encabezado */
+    }
+
+    /* Estilos para el cuerpo de la página */
+    body {
+        text-align: center; /* Centra el texto en el cuerpo de la página */
+    }
+
+    /* Estilos para el botón de envío */
+    input[type="submit"] {
+        background-color: #4CAF50; /* Color de fondo del botón */
+        color: white; /* Color del texto en el botón */
+        cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    }
+</style>
+
+<!-- Encabezado de la página -->
+<header>
+    <h1>Search And Destroy</h1> <!-- Título principal de la página -->
+</header>
+
+<body>
+<?php
+// Conexión a la base de datos MySQL
+$conexion = mysqli_connect("localhost", "root", "usbw", "usuariospia", "3307") or
+die("Problemas con la conexión"); // Mensaje de error si no se puede conectar
+
+// Realiza una consulta para insertar un nuevo equipo en la base de datos
+mysqli_query($conexion, "insert into equipos (Marca, Modelo, IMEI, Descripcion) values('$_REQUEST[marca]', '$_REQUEST[modelo]', '$_REQUEST[imei]', '$_REQUEST[descripcion]')")
+or die("Problemas en el select".mysqli_error($conexion)); // Maneja errores en la consulta
+
+// Cierra la conexión a la base de datos
+mysqli_close($conexion);
+
+// Mensaje de confirmación después de registrar el equipo
+echo "El equipo ha sido registrado correctamente.";
+?>
+
+<!-- Formulario para registrar otro equipo -->
+<form action="registrar.php" method="post">
+    <input type="submit" value="Registrar otro equipo"> <!-- Botón para registrar otro equipo -->
+</form>
+
+<!-- Formulario para regresar a la página de sesión -->
+<form action="sesion.php" method="post">
+    <input type="submit" value="Volver al inicio"> <!-- Botón para regresar al inicio -->
+</form>
+</body>
+</html>

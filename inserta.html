@@ -1,0 +1,78 @@
+<html>
+<head>
+    <!-- Título de la página que se muestra en la pestaña del navegador -->
+    <title>Inserta a Base Mysql</title>
+</head>
+<style>
+    /* Estilos para el encabezado principal */
+    body h1 {
+        text-align: center; /* Centra el texto del encabezado h1 */
+    }
+    
+    /* Estilos para el encabezado */
+    header {
+        background-color: #99F6EB; /* Color de fondo del encabezado */
+        color: #F3F7F6; /* Color del texto en el encabezado */
+        padding: 10px 20px; /* Espaciado interno del encabezado */
+        text-align: center; /* Centra el texto en el encabezado */
+        background-image: url(https://img.freepik.com/fotos-premium/primer-plano-telefono-celular-placa-circuito-medio_245570-167.jpg?w=740); /* Imagen de fondo del encabezado */
+    }
+    
+    /* Estilos no válidos; debería ser una clase o un selector válido */
+    echo {
+        text-align: center; /* Alineación (no válido, usar una clase o ID) */
+        size: 200 px; /* Tamaño (no válido, usar propiedades adecuadas) */
+    }
+    
+    /* Estilos para el cuerpo de la página */
+    body {
+        text-align: center; /* Centra el texto en el cuerpo de la página */
+    }
+
+    /* Estilos para el pie de página */
+    footer {
+        background-color: #030303; /* Color de fondo del pie de página */
+        color: #fff; /* Color del texto en el pie de página */
+        text-align: center; /* Centra el texto en el pie de página */
+        padding: 2px 0; /* Espaciado interno del pie de página */
+        position: fixed; /* Fija el pie de página en la parte inferior */
+        bottom: 0; /* Coloca el pie de página en la parte inferior */
+        width: 100%; /* Ancho completo del pie de página */
+    }
+</style>
+
+<!-- Encabezado de la página -->
+<header>
+    <h1>Search And Destroy</h1> <!-- Título principal de la página -->
+</header>
+<br><br><br><br><br><br><br><br> <!-- Espaciadores para el diseño -->
+
+<body>
+<?php
+// Conexión a la base de datos MySQL
+$conexion = mysqli_connect("localhost", "root", "usbw", "usuariospia", "3307") or
+die("Problemas con la conexión");
+
+// Realiza una consulta para insertar un nuevo usuario en la base de datos
+mysqli_query($conexion, "insert into usuarios (Nombres, Apellidos, Tdocumento, Ndocumento, Departamento, Ciudad, Email, Contacto) values('$_REQUEST[nombres]', '$_REQUEST[apellidos]', '$_REQUEST[tdocumento]', '$_REQUEST[documento]', '$_REQUEST[departamento]', '$_REQUEST[ciudad]', '$_REQUEST[email]', '$_REQUEST[contacto]')")
+or die("Problemas en el select".mysqli_error($conexion)); // Maneja errores en la consulta
+
+// Cierra la conexión a la base de datos
+mysqli_close($conexion);
+
+// Mensaje de confirmación después de registrar al usuario
+echo "El Usuario ha sido registrado correctamente.";
+?>
+<br><br><br><br><br><br><br><br> <!-- Espaciadores para el diseño -->
+
+<!-- Formulario para regresar a la página anterior -->
+<form action="pege.php" method="post">
+    <input type="submit" value="Regresar"> <!-- Botón para regresar -->
+</form>
+
+<!-- Pie de página -->
+<footer>
+    <p>Derechos de autor © 2024 - SearchAndDestroy</p> <!-- Texto del pie de página -->
+</footer>
+</body>
+</html>
